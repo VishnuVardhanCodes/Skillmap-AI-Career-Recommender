@@ -87,23 +87,26 @@ const LandingHero = ({ onSearch, isLoading }) => {
             </div>
           </div>
 
-          <button
-            onClick={handleSearch}
-            disabled={isLoading || !query.trim()}
-            className="w-full mt-4 h-16 btn-primary flex items-center justify-center gap-3 text-lg"
-          >
-            {isLoading ? (
-              <>
-                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                <span>Crafting Your Path...</span>
-              </>
-            ) : (
-              <>
-                <Sparkles size={20} />
-                <span>Generate Smart Roadmap</span>
-              </>
-            )}
-          </button>
+          <div className="relative group/btn mt-4">
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl blur opacity-30 group-hover/btn:opacity-100 transition duration-1000 group-hover/btn:duration-200 animate-pulse"></div>
+            <button
+              onClick={handleSearch}
+              disabled={isLoading || !query.trim()}
+              className="relative w-full h-16 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl font-black text-xl flex items-center justify-center gap-3 transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)]"
+            >
+              {isLoading ? (
+                <>
+                  <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+                  <span className="tracking-tight italic">Crafting Your Future...</span>
+                </>
+              ) : (
+                <>
+                  <Sparkles size={24} className="animate-pulse" />
+                  <span className="uppercase tracking-widest">Generate Smart Roadmap</span>
+                </>
+              )}
+            </button>
+          </div>
         </div>
 
         <AnimatePresence>

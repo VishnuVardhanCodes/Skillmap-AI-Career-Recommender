@@ -56,7 +56,27 @@ def get_ai_response(career_name, duration_weeks=12):
             model="llama-3.3-70b-versatile",
             response_format={"type": "json_object"}
         )
-        return json.loads(completion.choices[0].message.content)
+        result = json.loads(completion.choices[0].message.content)
+        
+        # Absolute Guarantee of 3 Resources
+        if "resources" not in result or not isinstance(result["resources"], list):
+            result["resources"] = []
+        
+        if len(result["resources"]) < 3:
+            defaults = [
+                {"name": "W3Schools", "link": "https://www.w3schools.com", "type": "Documentation"},
+                {"name": "Official Documentation", "link": "https://docs.microsoft.com", "type": "Official Docs"},
+                {"name": "Roadmap.sh", "link": "https://roadmap.sh", "type": "Reference"}
+            ]
+            for item in defaults:
+                if len(result["resources"]) >= 3: break
+                # Don't add if already there
+                if not any(r["name"] == item["name"] for r in result["resources"]):
+                    result["resources"].append(item)
+        
+        # Limit to strictly 3
+        result["resources"] = result["resources"][:3]
+        return result
     except Exception as e:
         print(f"AI Generation failed: {e}")
         return None

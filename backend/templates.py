@@ -64,8 +64,9 @@ CAREER_TEMPLATES = {
         "duration": "6 Months",
         "salary": {"range": "₹4L - ₹12L", "avg": 800000},
         "resources": [
+            {"name": "W3Schools", "link": "https://www.w3schools.com", "type": "Documentation"},
             {"name": "MDN Web Docs", "link": "https://developer.mozilla.org", "type": "Documentation"},
-            {"name": "Frontend Masters", "link": "https://frontendmasters.com", "type": "Course"}
+            {"name": "Roadmap.sh", "link": "https://roadmap.sh", "type": "Reference"}
         ]
     }
 }
