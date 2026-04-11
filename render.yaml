@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: skillmap-ai-backend
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+  
+  - type: web
+    name: skillmap-ai-frontend
+    env: static
+    buildCommand: cd frontend && npm install && npm run build
+    staticPublishDir: frontend/dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://skillmap-ai-backend.onrender.com/api
