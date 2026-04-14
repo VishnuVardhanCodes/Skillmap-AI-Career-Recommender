@@ -8,7 +8,7 @@
 
 **SkillMap AI** is a state-of-the-art career path architect that leverages Artificial Intelligence to generate precise, interactive, and personalized learning roadmaps. Designed for the modern learner, it transforms career ambiguity into a structured, actionable dossier of skills, projects, and resources.
 
----
+---V
 
 ## 💎 The SkillMap 2.0 Experience
 
